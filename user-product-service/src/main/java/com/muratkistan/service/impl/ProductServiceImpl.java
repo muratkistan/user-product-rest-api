@@ -8,8 +8,7 @@ import com.muratkistan.model.User;
 import com.muratkistan.repository.ProductRepository;
 import com.muratkistan.service.abstracts.ProductService;
 import com.muratkistan.service.abstracts.UserService;
-import com.muratkistan.util.result.DataResult;
-import com.muratkistan.util.result.SuccessDataResult;
+
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
@@ -35,7 +34,6 @@ public class ProductServiceImpl implements ProductService {
     public ProductDto deleteProduct(long productId) {
         Product product = productRepository.findById(productId).orElseThrow(() ->new NotFoundException("Product"));
         productRepository.delete(product);
-
         return modelMapper.map(product,ProductDto.class);
     }
 

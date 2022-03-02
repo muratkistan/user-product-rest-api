@@ -1,7 +1,6 @@
 package com.muratkistan.service.abstracts;
 
 import com.muratkistan.dtos.UserDto;
-import com.muratkistan.util.result.DataResult;
 
 import java.util.List;
 

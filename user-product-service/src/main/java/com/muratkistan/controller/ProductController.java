@@ -10,34 +10,40 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("/user-product/products")
+@RequestMapping("/user-product")
 @RequiredArgsConstructor
 public class ProductController {
 
     private  final ProductService productService;
 
-    @PostMapping("/add")
+    @PostMapping("/products/add")
     public ResponseEntity<ProductDto> add(@Valid @RequestBody ProductDto productDto) {
         return ResponseEntity.ok(productService.addProduct(productDto));
     }
 
-    @GetMapping("/getAll")
+    @GetMapping("/products/getAll")
     public ResponseEntity<List<ProductDto>> getProductsOfUser(){
         return ResponseEntity.ok(productService.getAllProducts());
 
     }
 
-    @DeleteMapping("/delete/{id}")
+    @GetMapping("/products/{id}")
+    public ResponseEntity<ProductDto> getProductById(@PathVariable("id") long id){
+        return ResponseEntity.ok(productService.getProductById(id));
+
+    }
+
+    @DeleteMapping("/products/delete/{id}")
     public ResponseEntity<ProductDto> delete(@PathVariable("id") int id) {
         return ResponseEntity.ok(productService.deleteProduct(id));
     }
 
-    @PutMapping("/update/{id}")
-    public ResponseEntity<ProductDto> update(@PathVariable("id") long id,@Valid @RequestBody ProductDto customerDto) {
-        return ResponseEntity.ok(productService.updateProductById(id,customerDto));
+    @PutMapping("/products/update/{id}")
+    public ResponseEntity<ProductDto> update(@PathVariable("id") long id,@Valid @RequestBody ProductDto productDto) {
+        return ResponseEntity.ok(productService.updateProductById(id,productDto));
     }
 
-    @GetMapping("/users/{userId}")
+    @GetMapping("/products/users/{userId}")
     public ResponseEntity<List<ProductDto>> getProductsOfUser(@PathVariable("userId") long userId){
         return ResponseEntity.ok(productService.getProductsOfUser(userId));
 

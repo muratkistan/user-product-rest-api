@@ -5,8 +5,7 @@ import com.muratkistan.exception.NotFoundException;
 import com.muratkistan.model.User;
 import com.muratkistan.repository.UserRepository;
 import com.muratkistan.service.abstracts.UserService;
-import com.muratkistan.util.result.DataResult;
-import com.muratkistan.util.result.SuccessDataResult;
+
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.modelmapper.ModelMapper;

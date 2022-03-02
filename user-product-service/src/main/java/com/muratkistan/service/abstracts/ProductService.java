@@ -1,8 +1,7 @@
 package com.muratkistan.service.abstracts;
 
 import com.muratkistan.dtos.ProductDto;
-import com.muratkistan.util.result.DataResult;
-import org.springframework.http.ResponseEntity;
+
 
 import java.util.List;
 

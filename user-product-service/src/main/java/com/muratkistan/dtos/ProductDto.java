@@ -1,14 +1,13 @@
 package com.muratkistan.dtos;
 
 import com.muratkistan.model.User;
+import com.muratkistan.util.annotations.code.UniqueProductCode;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.CascadeType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.Column;
 import javax.validation.constraints.NotNull;
 
 @Data
@@ -18,6 +17,10 @@ import javax.validation.constraints.NotNull;
 public class ProductDto {
 
     private long productId;
+
+    @NotNull
+    @Column(name = "product_code",unique = true)
+    private String productCode;
 
     @NotNull
     private String productName;
