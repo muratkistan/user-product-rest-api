@@ -17,7 +17,7 @@
 
 
 
-## EUREKA-SERVER
+## SERVICE-REGISTRY
 
 ```
   path : localhost:8761
