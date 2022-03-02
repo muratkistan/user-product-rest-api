@@ -18,11 +18,15 @@ import javax.validation.constraints.NotNull;
 public class ProductDto {
 
     private long productId;
+
     @NotNull
     private String productName;
+
     @NotNull
     private String category;
+
     @NotNull
     private int price;
+
     private User user;
 }

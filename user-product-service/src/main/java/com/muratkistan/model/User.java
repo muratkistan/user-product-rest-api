@@ -1,8 +1,17 @@
 package com.muratkistan.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import java.util.List;
-
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 @Entity
 @Table(name = "users")
 public class User {
@@ -16,9 +25,7 @@ public class User {
     private String emailAddress;
     private String phoneNumber;
 
-//      @OneToMany(
-//            cascade = CascadeType.ALL
-//    )
-//    @JoinColumn(name="product_id",referencedColumnName = "productId")
-//    private List<Product> products;
+    @JsonIgnore
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    private List<Product> products;
 }
