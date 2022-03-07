@@ -19,7 +19,8 @@ public class ProductDto {
     private long productId;
 
     @NotNull
-    @Column(name = "product_code",unique = true)
+    @Column(name = "product_code")
+    @UniqueProductCode
     private String productCode;
 
     @NotNull
